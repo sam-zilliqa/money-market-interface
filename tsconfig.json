@@ -16,7 +16,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "rootDir": "./src",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "types": ["cypress"]
   },
   "exclude": ["node_modules"],
   "include": ["src"]

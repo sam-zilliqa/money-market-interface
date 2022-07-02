@@ -2,10 +2,16 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    'cypress/globals': true,
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['import', 'react', 'jsx-a11y', 'prettier'],
-  extends: ['airbnb', 'airbnb-typescript', 'plugin:@typescript-eslint/recommended'],
+  plugins: ['import', 'react', 'jsx-a11y', 'prettier', 'cypress'],
+  extends: [
+    'airbnb',
+    'airbnb-typescript',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:cypress/recommended',
+  ],
   parserOptions: {
     project: './tsconfig.eslint.json',
   },
@@ -51,6 +57,8 @@ module.exports = {
           'src/stories/**',
           '**/*.spec.tsx',
           'src/setupTests.ts',
+          'cypress/**',
+          'cypress.config.ts',
         ],
       },
     ],
