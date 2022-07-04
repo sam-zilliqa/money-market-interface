@@ -21,9 +21,11 @@ const getMarkets = async (): Promise<GetMarketsOutput> => {
     endpoint: '/governance/venus',
     method: 'GET',
   });
+
   if ('result' in response && response.result === 'error') {
     throw new Error(response.message);
   }
+
   let markets: Market[] = [];
   let dailyVenusWei;
   if (response && response.data && response.data.data) {
@@ -32,6 +34,7 @@ const getMarkets = async (): Promise<GetMarketsOutput> => {
       const activeMarket = response.data?.data.markets.find(
         (market: Market) => market.underlyingSymbol.toLowerCase() === curr.toLowerCase(),
       );
+
       if (activeMarket) {
         const formattedActiveMarket = {
           ...activeMarket,
@@ -45,11 +48,14 @@ const getMarkets = async (): Promise<GetMarketsOutput> => {
           treasuryTotalBorrowsCents: new BigNumber(activeMarket.totalBorrowsUsd).times(100),
           treasuryTotalSupplyCents: new BigNumber(activeMarket.totalSupplyUsd).times(100),
         };
+
         return [...acc, formattedActiveMarket];
       }
+
       return acc;
     }, []);
   }
+
   return { markets, dailyVenusWei };
 };
 

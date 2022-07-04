@@ -25,6 +25,7 @@ export const HeaderUi: React.FC<HeaderProps> = ({
 }) => {
   const { t } = useTranslation();
   const styles = useStyles();
+
   return (
     <Paper css={styles.headerRoot}>
       <div css={styles.row}>
@@ -45,26 +46,50 @@ export const HeaderUi: React.FC<HeaderProps> = ({
           </Typography>
         </Paper>
         <Paper css={styles.box}>
-          <Typography variant="small1" css={styles.title}>
+          <Typography
+            variant="small1"
+            css={styles.title}
+            data-testid={TEST_IDS.header.totalBorrow.text}
+          >
             {t('market.totalBorrow')}
           </Typography>
-          <Typography variant="h3" css={styles.value}>
+          <Typography
+            variant="h3"
+            css={styles.value}
+            data-testid={TEST_IDS.header.totalBorrow.value}
+          >
             {formatCentsToReadableValue({ value: totalBorrowCents })}
           </Typography>
         </Paper>
         <Paper css={styles.box}>
-          <Typography variant="small1" css={styles.title}>
+          <Typography
+            variant="small1"
+            css={styles.title}
+            data-testid={TEST_IDS.header.availableLiquidity.text}
+          >
             {t('market.availableLiquidity')}
           </Typography>
-          <Typography variant="h3" css={styles.value}>
+          <Typography
+            variant="h3"
+            css={styles.value}
+            data-testid={TEST_IDS.header.availableLiquidity.value}
+          >
             {formatCentsToReadableValue({ value: availableLiquidityCents })}
           </Typography>
         </Paper>
         <Paper css={styles.box}>
-          <Typography variant="small1" css={styles.title}>
+          <Typography
+            variant="small1"
+            css={styles.title}
+            data-testid={TEST_IDS.header.totalTreasury.text}
+          >
             {t('market.totalTreasury')}
           </Typography>
-          <Typography variant="h3" css={styles.value}>
+          <Typography
+            variant="h3"
+            css={styles.value}
+            data-testid={TEST_IDS.header.totalTreasury.value}
+          >
             {formatCentsToReadableValue({ value: totalTreasuryCents })}
           </Typography>
         </Paper>

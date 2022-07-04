@@ -13,10 +13,36 @@ describe('pages/Market', () => {
   });
 
   it('header displays protocol totals', () => {
-    cy.get(`[data-test-id="${TEST_IDS.header.totalSupply.text}"]`).should(
+    cy.get(`[data-testid="${TEST_IDS.header.totalSupply.text}"]`).should(
       'have.text',
       en.market.totalSupply,
     );
-    cy.get(`[data-test-id="${TEST_IDS.header.totalSupply.value}"]`).should('have.text', 1);
+    cy.get(`[data-testid="${TEST_IDS.header.totalSupply.value}"]`).should(
+      'have.text',
+      '$2,061,197,719.09',
+    );
+
+    cy.get(`[data-testid="${TEST_IDS.header.totalBorrow.text}"]`).should(
+      'have.text',
+      en.market.totalBorrow,
+    );
+    cy.get(`[data-testid="${TEST_IDS.header.totalBorrow.value}"]`).should(
+      'have.text',
+      '$637,311,933.68',
+    );
+
+    cy.get(`[data-testid="${TEST_IDS.header.availableLiquidity.text}"]`).should(
+      'have.text',
+      en.market.availableLiquidity,
+    );
+    cy.get(`[data-testid="${TEST_IDS.header.availableLiquidity.value}"]`).should(
+      'have.text',
+      '$1,433,512,287.56',
+    );
+    cy.get(`[data-testid="${TEST_IDS.header.totalTreasury.text}"]`).should(
+      'have.text',
+      en.market.totalTreasury,
+    );
+    cy.get(`[data-testid="${TEST_IDS.header.totalTreasury.value}"]`).should('have.text', '$0.00');
   });
 });
