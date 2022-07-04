@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js';
 import React from 'react';
 
+import vTokenBalanceTreasury from '__mocks__/api/vTokenBalanceTreasury.json';
 import { markets } from '__mocks__/models/markets';
-import { vTokenBalanceTreasury } from '__mocks__/models/vTokenBalanceTreasury';
 import { getMarkets, useGetTreasuryTotals, useGetVTokenBalancesAll } from 'clients/api';
 import renderComponent from 'testUtils/renderComponent';
 
