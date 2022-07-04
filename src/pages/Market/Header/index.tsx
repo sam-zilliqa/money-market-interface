@@ -8,6 +8,7 @@ import { formatCentsToReadableValue } from 'utilities';
 import { useGetTreasuryTotals } from 'clients/api';
 
 import { useStyles } from '../styles';
+import TEST_IDS from '../testIds';
 
 interface HeaderProps {
   totalSupplyCents: BigNumber;
@@ -28,10 +29,18 @@ export const HeaderUi: React.FC<HeaderProps> = ({
     <Paper css={styles.headerRoot}>
       <div css={styles.row}>
         <Paper css={styles.box}>
-          <Typography variant="small1" css={styles.title}>
+          <Typography
+            variant="small1"
+            css={styles.title}
+            data-testid={TEST_IDS.header.totalSupply.text}
+          >
             {t('market.totalSupply')}
           </Typography>
-          <Typography variant="h3" css={styles.value}>
+          <Typography
+            variant="h3"
+            css={styles.value}
+            data-testid={TEST_IDS.header.totalSupply.value}
+          >
             {formatCentsToReadableValue({ value: totalSupplyCents })}
           </Typography>
         </Paper>
