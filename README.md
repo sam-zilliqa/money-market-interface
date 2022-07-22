@@ -144,3 +144,18 @@ contracts, using their ABIs located at `src/constants/contracts/abis`.
 Note that the types aren't committed to the repo, since they are rebuilt every time TypeChain
 generates them. Instead, they are automatically generated upon installing dependencies. You will
 find them at `src/types/contracts`.
+
+# Cypress
+
+End to End tests can be run using cypress. Test files should include the suffix `.cy.ts`. To run the tests you'll need to start the app setting chain id to mainnet and `REACT_APP_CYPRESS` to true.
+
+```
+$ REACT_APP_CYPRESS=true REACT_APP_CHAIN_ID=56 yarn start
+```
+
+Start hardhat node and then in a seperate tab start cypress.
+```
+$ yarn hardhat:node
+
+$ yarn cypress:open
+```

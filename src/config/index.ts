@@ -17,7 +17,8 @@ const chainId: BscChainId = process.env.REACT_APP_CHAIN_ID
   : BscChainId.MAINNET;
 
 const isOnTestnet = chainId === BscChainId.TESTNET;
-const rpcUrl = sample(RPC_URLS[chainId]) as string;
+const envRpcUrls = process.env.REACT_APP_CYPRESS ? RPC_URLS.cypress : RPC_URLS[chainId];
+const rpcUrl = sample(envRpcUrls) as string;
 const apiUrl = API_ENDPOINT_URLS[chainId];
 const bscScanUrl = BSC_SCAN_URLS[chainId];
 

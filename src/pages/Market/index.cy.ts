@@ -43,6 +43,9 @@ describe('pages/Market', () => {
       'have.text',
       en.market.totalTreasury,
     );
-    cy.get(`[data-testid="${TEST_IDS.header.totalTreasury.value}"]`).should('have.text', '$0.00');
+    cy.get(`[data-testid="${TEST_IDS.header.totalTreasury.value}"]`).should(
+      'have.text',
+      '$10,474,401.10',
+    );
   });
 });

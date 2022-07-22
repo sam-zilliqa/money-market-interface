@@ -5,6 +5,9 @@
   "engines": {
     "node": ">=16.x.x"
   },
+  "workspaces": [
+    "hardhat"
+  ],
   "scripts": {
     "start": "react-scripts --max_old_space_size=4096 start",
     "prepare": "git apply patches/@stylelint+postcss-css-in-js+0.37.2.patch",
@@ -23,7 +26,8 @@
     "build-storybook": "STORYBOOK=true build-storybook -s public",
     "loki": "loki update --reactUri file:./storybook-static",
     "regression": "reg-suit run",
-    "cypress:open": "NODE_ENV=development cypress open"
+    "cypress:open": "NODE_ENV=development cypress open",
+    "hardhat:node": "yarn workspace test-chain run hardhat:node"
   },
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",

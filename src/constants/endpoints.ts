@@ -14,4 +14,5 @@ export const RPC_URLS: {
     'https://bsc-dataseed.binance.org',
   ],
   [BscChainId.TESTNET]: ['https://bsc-testnet.nodereal.io/v1/f9777f42cc9243f0a766937df1c6a5f3'],
+  cypress: ['http://127.0.0.1:8545/'],
 };
