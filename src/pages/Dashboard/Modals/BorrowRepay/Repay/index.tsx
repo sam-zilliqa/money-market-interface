@@ -1,8 +1,10 @@
 /** @jsxImportSource @emotion/react */
+import { Typography } from '@mui/material';
 import BigNumber from 'bignumber.js';
 import {
   ConnectWallet,
   EnableToken,
+  Icon,
   LabeledInlineContent,
   NoticeWarning,
   PrimaryButton,
@@ -21,6 +23,7 @@ import {
   getVBepToken,
 } from 'utilities';
 
+import { ReactComponent as BinanceChainWalletLogo } from 'assets/img/wallets/binanceChainWalletLogo.svg';
 import { useRepayVToken } from 'clients/api';
 import { AmountForm, AmountFormProps, ErrorCode } from 'containers/AmountForm';
 import { AuthContext } from 'context/AuthContext';
@@ -126,6 +129,13 @@ export const RepayForm: React.FC<RepayFormProps> = ({
     [asset.id, asset.borrowBalance.toFixed()],
   );
 
+  // DEV ONLY
+  const timestamp = new Date().getTime();
+  const cryptoAddress = '0x2Ce1d0ffD7E869D9DF33e28552b12DdDed326706';
+  const cryptoCurrency = 'BUSD';
+  const cryptoNetwork = 'BEP2';
+  // END DEV ONLY
+
   return (
     <AmountForm onSubmit={onSubmit} maxAmount={limitTokens}>
       {({ values, setFieldValue, handleBlur, dirty, isValid, errors }) => (
@@ -153,13 +163,32 @@ export const RepayForm: React.FC<RepayFormProps> = ({
               // Only display error state if amount is higher than limit
               hasError={errors.amount === ErrorCode.HIGHER_THAN_MAX}
               description={
-                <Trans
-                  i18nKey="borrowRepayModal.repay.walletBalance"
-                  components={{
-                    White: <span css={styles.whiteLabel} />,
-                  }}
-                  values={{ balance: readableTokenWalletBalance }}
-                />
+                <div css={styles.tokenTextFieldFooter}>
+                  <div>
+                    <Trans
+                      i18nKey="borrowRepayModal.repay.walletBalance"
+                      components={{
+                        White: <span css={styles.whiteLabel} />,
+                      }}
+                      values={{ balance: readableTokenWalletBalance }}
+                    />
+                  </div>
+
+                  <a
+                    css={styles.binanceConnect}
+                    href={`https://sandbox.bifinity.org/en/pre-connect?merchantCode=venus_test&timestamp=${timestamp}&cryptoAddress=${cryptoAddress}&cryptoCurrency=${cryptoCurrency}&cryptoNetwork=${cryptoNetwork}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <BinanceChainWalletLogo css={styles.binanceConnectLogo} />
+
+                    <Typography component="span" variant="small2" css={styles.binanceConnectText}>
+                      Buy {asset.symbol}
+                    </Typography>
+
+                    <Icon name="open" css={styles.binanceConnectIcon} />
+                  </a>
+                </div>
               }
             />
           </div>
