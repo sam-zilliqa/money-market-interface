@@ -5,6 +5,7 @@ import React from 'react';
 import ClaimXvsRewardButton from '../ClaimXvsRewardButton';
 import ConnectButton from '../ConnectButton';
 import { Toolbar } from '../Toolbar';
+import TEST_IDS from '../testIds';
 import Breadcrumbs from './Breadcrumbs';
 import { useStyles } from './styles';
 
@@ -18,7 +19,7 @@ const Header: React.FC = () => {
 
         <div css={styles.ctaContainer}>
           <ClaimXvsRewardButton css={styles.claimXvsButton} />
-          <ConnectButton />
+          <ConnectButton data-testid={TEST_IDS.connectButton} />
         </div>
       </Toolbar>
     </AppBar>

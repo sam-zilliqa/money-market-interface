@@ -26,6 +26,7 @@ export const ConnectButtonUi: React.FC<ConnectButtonProps> = ({
 
 export const ConnectButton: React.FC<ButtonProps> = props => {
   const { account, openAuthModal } = React.useContext(AuthContext);
+
   return (
     <ConnectButtonUi
       accountAddress={account?.address}

@@ -15,9 +15,15 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "rootDir": "./src",
-    "baseUrl": "./src"
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "types": [
+      "cypress",
+      "@synthetixio/synpress/support",
+      "cypress-wait-until",
+      "@testing-library/cypress"
+    ]
   },
   "exclude": ["node_modules"],
-  "include": ["src"]
+  "include": ["src", "tests"]
 }
