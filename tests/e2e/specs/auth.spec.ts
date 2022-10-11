@@ -1,6 +1,8 @@
 import LAYOUT_TEST_IDS from 'components/Layout/testIds';
 import en from 'translation/translations/en.json';
 
+import { TEST_ACCOUNT_ADDRESS } from '../constants';
+
 describe('Metamask', () => {
   it('should let user connect their injected wallet', () => {
     cy.visit('/');
@@ -14,7 +16,14 @@ describe('Metamask', () => {
     cy.acceptMetamaskAccess();
 
     // Check connect button now displays truncated account address
-    // TODO: get truncated address from an imported value
-    cy.get(`[data-testid="${LAYOUT_TEST_IDS.connectButton}"]`).should('have.text', '0xa2...cFC7');
+    const expectedTruncatedAddress = `${TEST_ACCOUNT_ADDRESS.substring(
+      0,
+      4,
+    )}...${TEST_ACCOUNT_ADDRESS.substring(TEST_ACCOUNT_ADDRESS.length - 4)}`;
+
+    cy.get(`[data-testid="${LAYOUT_TEST_IDS.connectButton}"]`).should(
+      'have.text',
+      expectedTruncatedAddress,
+    );
   });
 });

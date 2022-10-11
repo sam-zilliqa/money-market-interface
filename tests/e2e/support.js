@@ -1,13 +1,14 @@
 import '@synthetixio/synpress/support/index';
 
 before(() => {
-  // Add testnet network
+  // Add mainnet network
   cy.addMetamaskNetwork({
-    networkName: 'BSC Testnet',
-    rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545',
-    chainId: '97',
+    // Add mainnet network
+    networkName: 'BSC',
+    rpcUrl: 'https://bsc-dataseed.binance.org/',
+    chainId: '56',
     symbol: 'BNB',
-    blockExplorer: 'https://explorer.binance.org/smart-testnet',
-    isTestnet: true,
+    blockExplorer: 'https://bscscan.com',
+    isTestnet: false,
   });
 });

@@ -12,12 +12,15 @@ export interface Config {
   bscScanUrl: string;
 }
 
-const chainId: BscChainId = process.env.REACT_APP_CHAIN_ID
-  ? parseInt(process.env.REACT_APP_CHAIN_ID, 10)
-  : BscChainId.MAINNET;
+const chainId: BscChainId =
+  process.env.REACT_APP_CHAIN_ID && !process.env.REACT_APP_IS_RUNNING_E2E
+    ? parseInt(process.env.REACT_APP_CHAIN_ID, 10)
+    : BscChainId.MAINNET;
 
 const isOnTestnet = chainId === BscChainId.TESTNET;
-const rpcUrl = sample(RPC_URLS[chainId]) as string;
+const rpcUrl = sample(RPC_URLS[process.env.REACT_APP_IS_RUNNING_E2E ? 'e2e' : chainId]) as string;
+
+// TODO: point to local API when running e2e tests
 const apiUrl = API_ENDPOINT_URLS[chainId];
 const bscScanUrl = BSC_SCAN_URLS[chainId];
 

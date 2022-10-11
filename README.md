@@ -144,3 +144,27 @@ contracts, using their ABIs located at `src/constants/contracts/abis`.
 Note that the types aren't committed to the repo, since they are rebuilt every time TypeChain
 generates them. Instead, they are automatically generated upon installing dependencies. You will
 find them at `src/types/contracts`.
+
+# End-to-end tests
+
+End-to-end tests are run using [Synpress](https://github.com/Synthetixio/synpress), which is a
+testing framework based on Cypress and Playwrith. Test files are located at the root of the project:
+`tests/e2e/specs`.
+
+To run the tests you'll need to start a Hardhat node using the next command:
+
+```
+yarn hardhat:e2e
+```
+
+In a separate terminal tab, you then need to execute the next command in order to run the dApp:
+
+```
+yarn start:e2e
+```
+
+Finally, execute the next command in order to run the tests:
+
+```
+yarn test:e2e
+```
