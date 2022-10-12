@@ -32,6 +32,8 @@ export const WalletList: React.FC<WalletListProps> = ({ onLogin }) => {
               key={`wallet-${name}`}
               type="button"
               onClick={() => onLogin(connector)}
+              // TODO: remove
+              data-testid={`wallet-${name}`}
             >
               <Logo css={styles.walletLogo} />
 

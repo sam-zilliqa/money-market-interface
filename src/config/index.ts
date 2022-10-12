@@ -20,7 +20,6 @@ const chainId: BscChainId =
 const isOnTestnet = chainId === BscChainId.TESTNET;
 const rpcUrl = sample(RPC_URLS[process.env.REACT_APP_IS_RUNNING_E2E ? 'e2e' : chainId]) as string;
 
-// TODO: point to local API when running e2e tests
 const apiUrl = API_ENDPOINT_URLS[chainId];
 const bscScanUrl = BSC_SCAN_URLS[chainId];
 

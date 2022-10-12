@@ -5,16 +5,13 @@
   "engines": {
     "node": ">=16.x.x"
   },
-  "workspaces": [
-    "hardhat"
-  ],
   "scripts": {
     "start": "react-scripts --max_old_space_size=4096 start",
     "start:e2e": "BROWSER=none REACT_APP_IS_RUNNING_E2E=true yarn start",
     "prepare": "git apply patches/@stylelint+postcss-css-in-js+0.37.2.patch",
     "build": "react-scripts --max_old_space_size=4096 build",
     "test": "TZ=UTC REACT_APP_CHAIN_ID=97 react-scripts test",
-    "test:e2e": "PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 yarn synpress run",
+    "test:e2e": "cd e2e && jest",
     "eject": "react-scripts eject",
     "pretty": "yarn prettier \"src/**/*.{js,jsx,ts,tsx,html,json,md}\" public/**/*.html --check",
     "lint": "export NODE_OPTIONS=\"--max-old-space-size=4096\" && eslint .",
@@ -32,12 +29,12 @@
   },
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
+    "@chainsafe/dappeteer": "^3.0.0",
     "@emotion/react": "^11.9.3",
     "@infinitywallet/infinity-connector": "^1.0.5",
     "@lottiefiles/react-lottie-player": "^3.4.5",
     "@mui/material": "^5.4.2",
     "@mui/utils": "^5.4.4",
-    "@synthetixio/synpress": "^2.4.1-beta.0",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@uiw/react-markdown-preview": "^4.0.17",
@@ -55,6 +52,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "noop-ts": "^1.0.3",
+    "puppeteer": "^18.2.1",
     "react": "^17.0.1",
     "react-countdown": "^2.3.2",
     "react-dom": "npm:@hot-loader/react-dom@^17.0.1",

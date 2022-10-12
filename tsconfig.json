@@ -16,14 +16,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "rootDir": "./",
-    "baseUrl": "./src",
-    "types": [
-      "cypress",
-      "@synthetixio/synpress/support",
-      "cypress-wait-until",
-      "@testing-library/cypress"
-    ]
+    "baseUrl": "./src"
   },
   "exclude": ["node_modules"],
-  "include": ["src", "tests"]
+  "include": ["src", "e2e"]
 }
