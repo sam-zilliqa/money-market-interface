@@ -26,7 +26,8 @@ export const EllipseAddress: React.FC<AddressProps> = ({
 
   return (
     <>
-      <span className={className} css={styles.getAddress({ ellipseBreakpoint })}>
+      {/* TODO: remove testid */}
+      <span className={className} css={styles.getAddress({ ellipseBreakpoint })} data-testid="123">
         {address}
       </span>
 
