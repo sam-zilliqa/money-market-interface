@@ -1,0 +1,35 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "url": "https://dapp-browser.apps.ledger.com",
+  "params": {
+    "dappUrl": "http://localhost:3000/?embed=true",
+    "nanoApp": "Venus",
+    "dappName": "Venus",
+    "networks": [
+      {
+        "currency": "bsc",
+        "chainID": 56,
+        "nodeURL": "https://bsc-dataseed1.ninicoin.io"
+      }
+    ]
+  },
+  "homepageUrl": "https://venus.io/",
+  "icon": "https://cdn.live.ledger.com/icons/platform/lido.png",
+  "platform": "all",
+  "apiVersion": "0.0.1",
+  "manifestVersion": "1",
+  "branch": "stable",
+  "categories": ["staking", "lending", "borrowing", "defi"],
+  "currencies": ["bsc"],
+  "content": {
+    "shortDescription": {
+      "en": "Venus is a decentralized finance (DeFi) algorithmic money market protocol on BNB Chain."
+    },
+    "description": {
+      "en": "Venus is a decentralized finance (DeFi) algorithmic money market protocol on BNB Chain."
+    }
+  },
+  "permissions": [],
+  "domains": ["https://*"]
+}

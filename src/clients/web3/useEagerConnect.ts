@@ -1,9 +1,12 @@
+import config from 'config';
 import { useEffect, useState } from 'react';
 
 import { useWeb3Account } from 'clients/web3';
 import { LS_KEY_CONNECTED_CONNECTOR } from 'constants/localStorageKeys';
 
 import { injectedConnector } from './connectors';
+import { LedgerLiveConnector } from './ledgerLiveConnector';
+import { isRunningInLedgerLive } from './walletDetectionUtils';
 
 const useEagerConnect = () => {
   const { activate, active } = useWeb3Account();
@@ -12,6 +15,19 @@ const useEagerConnect = () => {
 
   useEffect(() => {
     const init = async () => {
+      // Automatically log user in if app is running in Ledger Live
+      if (!config.isOnTestnet && isRunningInLedgerLive()) {
+        const ledgerConnector = new LedgerLiveConnector({ supportedChainIds: [config.chainId] });
+
+        try {
+          await activate(ledgerConnector, undefined, true);
+        } catch (error) {
+          setTried(true);
+        }
+
+        return;
+      }
+
       // Check if user previously connected their wallet with the dApp
       const connectedConnector = window.localStorage.getItem(LS_KEY_CONNECTED_CONNECTOR);
       if (!connectedConnector) {
