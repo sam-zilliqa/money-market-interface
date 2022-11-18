@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'translation';
 
-import { Connector } from 'clients/web3';
+import { ReactComponent as LedgerLogo } from 'assets/img/wallets/ledgerLogo.svg';
+import { Connector, isRunningInLedgerLive } from 'clients/web3';
 
 import { BscLink } from '../../BscLink';
 import { SecondaryButton } from '../../Button';
@@ -29,10 +30,22 @@ export const AccountDetails: React.FC<AccountDetailsProps> = ({
   const styles = useStyles();
   const { t } = useTranslation();
 
-  // Grab the wallet info. Note that we default to the first wallet in the list
-  // if no match is found, but in reality that case should never happen
-  const { Logo: WalletLogo, name: walletName } =
-    WALLETS.find(wallet => wallet.connector === account.connector) || WALLETS[0];
+  const { Logo: WalletLogo, name: walletName } = useMemo(() => {
+    if (isRunningInLedgerLive()) {
+      return {
+        Logo: LedgerLogo,
+        name: t('authModal.accountDetails.ledgerLive'),
+      };
+    }
+
+    // Grab the wallet info. Note that we default to the first wallet in the list
+    // if no match is found, but in reality that case should never happen
+    return WALLETS.find(wallet => wallet.connector === account.connector) || WALLETS[0];
+  }, [account.connector]);
+
+  // Hide log out button when dApp is running in Ledger Live (the latter is in
+  // charge of authentication in that case)
+  const shouldShowLogOutButton = !isRunningInLedgerLive();
 
   return (
     <div css={styles.container}>
@@ -62,9 +75,11 @@ export const AccountDetails: React.FC<AccountDetailsProps> = ({
 
       <BscLink css={styles.bscScanLinkContainer} hash={account.address} />
 
-      <SecondaryButton onClick={onLogOut} fullWidth>
-        {t('authModal.accountDetails.logOutButtonLabel')}
-      </SecondaryButton>
+      {shouldShowLogOutButton && (
+        <SecondaryButton css={styles.logOutButton} onClick={onLogOut} fullWidth>
+          {t('authModal.accountDetails.logOutButtonLabel')}
+        </SecondaryButton>
+      )}
     </div>
   );
 };

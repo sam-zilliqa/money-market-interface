@@ -67,7 +67,6 @@
     "rehype-sanitize": "^5.0.1",
     "sass": "^1.49.7",
     "web3": "^1.7.1",
-    "web3-ledgerhq-frame-connector": "^1.0.1",
     "web3-utils": "1.7.1",
     "yarn": "^1.22.19",
     "yup": "^0.32.11"

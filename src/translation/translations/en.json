@@ -18,6 +18,7 @@
   },
   "authModal": {
     "accountDetails": {
+      "ledgerLive": "Ledger Live",
       "logOutButtonLabel": "Log out"
     },
     "title": {
