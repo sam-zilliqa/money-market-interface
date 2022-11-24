@@ -24,3 +24,4 @@ declare module '*.scss' {
 }
 
 declare module 'emotion-theming';
+declare module 'react-app-protect';
