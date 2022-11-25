@@ -3,7 +3,7 @@ import { BscChainId } from 'types';
 export const API_ENDPOINT_URLS = {
   [BscChainId.MAINNET]: 'https://api.venus.io/api',
   // [BscChainId.TESTNET]: 'https://testnetapi.venus.io/api',
-  [BscChainId.TESTNET]: 'https://money-market-api.vercel.app/',
+  [BscChainId.TESTNET]: 'https://money-market-api.vercel.app',
   // [BscChainId.TESTNET]: 'http://localhost:5001',
 };
 
