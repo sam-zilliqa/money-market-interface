@@ -19,14 +19,14 @@ export const menuItems: MenuItem[] = [
     i18nTitleKey: 'layout.menuItems.markets',
     icon: 'market',
   },
-  {
-    href: Path.VAULTS,
-    // Translation key: do not remove this comment
-    // t('layout.menuItems.vaults')
-    i18nKey: 'layout.menuItems.vaults',
-    i18nTitleKey: 'layout.menuItems.vaults',
-    icon: 'vault',
-  },
+  // {
+  //   href: Path.VAULTS,
+  //   // Translation key: do not remove this comment
+  //   // t('layout.menuItems.vaults')
+  //   i18nKey: 'layout.menuItems.vaults',
+  //   i18nTitleKey: 'layout.menuItems.vaults',
+  //   icon: 'vault',
+  // },
   {
     href: Path.HISTORY,
     // Translation key: do not remove this comment
@@ -35,46 +35,46 @@ export const menuItems: MenuItem[] = [
     i18nTitleKey: 'layout.menuItems.history',
     icon: 'history',
   },
-  {
-    href: Path.GOVERNANCE,
-    // Translation key: do not remove this comment
-    // t('layout.menuItems.governance')
-    i18nKey: 'layout.menuItems.governance',
-    i18nTitleKey: 'layout.menuItems.governance',
-    icon: 'vote',
-  },
-  {
-    href: Path.XVS,
-    // Translation key: do not remove this comment
-    // t('layout.menuItems.xvs')
-    i18nKey: 'layout.menuItems.xvs',
-    i18nTitleKey: 'layout.menuItems.xvs',
-    icon: 'xvsOutlined',
-  },
-  {
-    href: Path.CONVERT_VRT,
-    // Translation key: do not remove this comment
-    // t('layout.menuItems.convertVrt')
-    // t('layout.menuItems.convertVrtTitle')
-    i18nKey: 'layout.menuItems.convertVrt',
-    i18nTitleKey: 'layout.menuItems.convertVrtTitle',
-    icon: 'convert',
-  },
-  {
-    href: Path.SWAP,
-    // Translation key: do not remove this comment
-    // t('layout.menuItems.swap')
-    i18nKey: 'layout.menuItems.swap',
-    i18nTitleKey: 'layout.menuItems.swap',
-    icon: 'convert',
-    isNew: true,
-  },
-  {
-    href: 'https://prdt.finance/XVS',
-    // Translation key: do not remove this comment
-    // t('layout.menuItems.xvsPrediction')
-    i18nKey: 'layout.menuItems.xvsPrediction',
-    i18nTitleKey: 'layout.menuItems.xvsPrediction',
-    icon: 'xvsPrediction',
-  },
+  // {
+  //   href: Path.GOVERNANCE,
+  //   // Translation key: do not remove this comment
+  //   // t('layout.menuItems.governance')
+  //   i18nKey: 'layout.menuItems.governance',
+  //   i18nTitleKey: 'layout.menuItems.governance',
+  //   icon: 'vote',
+  // },
+  // {
+  //   href: Path.XVS,
+  //   // Translation key: do not remove this comment
+  //   // t('layout.menuItems.xvs')
+  //   i18nKey: 'layout.menuItems.xvs',
+  //   i18nTitleKey: 'layout.menuItems.xvs',
+  //   icon: 'xvsOutlined',
+  // },
+  // {
+  //   href: Path.CONVERT_VRT,
+  //   // Translation key: do not remove this comment
+  //   // t('layout.menuItems.convertVrt')
+  //   // t('layout.menuItems.convertVrtTitle')
+  //   i18nKey: 'layout.menuItems.convertVrt',
+  //   i18nTitleKey: 'layout.menuItems.convertVrtTitle',
+  //   icon: 'convert',
+  // },
+  // {
+  //   href: Path.SWAP,
+  //   // Translation key: do not remove this comment
+  //   // t('layout.menuItems.swap')
+  //   i18nKey: 'layout.menuItems.swap',
+  //   i18nTitleKey: 'layout.menuItems.swap',
+  //   icon: 'convert',
+  //   isNew: true,
+  // },
+  // {
+  //   href: 'https://prdt.finance/XVS',
+  //   // Translation key: do not remove this comment
+  //   // t('layout.menuItems.xvsPrediction')
+  //   i18nKey: 'layout.menuItems.xvsPrediction',
+  //   i18nTitleKey: 'layout.menuItems.xvsPrediction',
+  //   icon: 'xvsPrediction',
+  // },
 ];

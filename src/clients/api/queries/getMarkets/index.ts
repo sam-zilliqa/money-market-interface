@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js';
 import { Market } from 'types';
 import { restService } from 'utilities';
 
-import { VBEP_TOKENS } from 'constants/tokens';
+import { ZIL_TOKENS } from 'constants/tokens';
 
 export interface GetMarketsResponse {
   dailyVenus: number;
@@ -27,11 +27,13 @@ const getMarkets = async (): Promise<GetMarketsOutput> => {
   let markets: Market[] = [];
   let dailyVenusWei;
   if (response && response.data && response.data.data) {
+    console.log('iiui', response.data.data);
     dailyVenusWei = new BigNumber(response.data.data.dailyVenus);
-    markets = Object.keys(VBEP_TOKENS).reduce<Market[]>((acc: Market[], curr: string) => {
+    markets = Object.keys(ZIL_TOKENS).reduce<Market[]>((acc: Market[], curr: string) => {
       const activeMarket = response.data?.data.markets.find(
         (market: Market) => market.underlyingSymbol.toLowerCase() === curr.toLowerCase(),
       );
+      console.log('any markdts?', activeMarket);
       if (activeMarket) {
         const formattedActiveMarket = {
           ...activeMarket,

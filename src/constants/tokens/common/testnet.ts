@@ -21,6 +21,7 @@ import vai from 'assets/img/tokens/vai.svg';
 import vrt from 'assets/img/tokens/vrt.svg';
 import xrp from 'assets/img/tokens/xrp.svg';
 import xvs from 'assets/img/tokens/xvs.svg';
+import vzil from 'assets/img/tokens/zil.svg';
 
 import TOKEN_ADDRESSES from '../../contracts/addresses/tokens.json';
 
@@ -172,5 +173,12 @@ export const TESTNET_TOKENS = {
     decimals: 18,
     address: TOKEN_ADDRESSES.vrt[BscChainId.TESTNET],
     asset: vrt,
+  } as Token,
+  zil: {
+    id: 'zil',
+    symbol: 'vZIL',
+    address: TOKEN_ADDRESSES.zil[BscChainId.TESTNET],
+    decimals: 18,
+    asset: vzil,
   } as Token,
 };

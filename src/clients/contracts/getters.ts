@@ -70,6 +70,7 @@ export const getTokenContractByAddress = (address: string, web3: Web3): Bep20 =>
   getContract(bep20Abi as AbiItem[], address, web3) as unknown as Bep20;
 
 export const getVTokenContract = <T extends string>(tokenId: T, web3: Web3): VTokenContract<T> => {
+  console.log('haram', unsafelyGetVToken(tokenId));
   const vBepTokenAddress = unsafelyGetVToken(tokenId).address;
 
   if (tokenId === 'bnb') {

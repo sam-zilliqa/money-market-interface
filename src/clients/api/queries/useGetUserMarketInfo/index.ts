@@ -115,7 +115,6 @@ const useGetUserMarketInfo = ({
       (acc, market) => {
         const token = unsafelyGetToken(market.id);
         const vBepToken = unsafelyGetVToken(token.id);
-
         // Skip token if it isn't listed
         if (!token || !vBepToken) {
           return acc;
