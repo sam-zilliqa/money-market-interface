@@ -196,7 +196,7 @@ const MarketTable = () => {
   const { data: { markets } = { markets: [], dailyVenusWei: undefined } } = useGetMarkets({
     placeholderData: { markets: [], dailyVenusWei: undefined },
   });
-  console.log('markets', markets);
+
   return <MarketTableUi markets={markets} getRowHref={row => `/market/${row[0].value}`} />;
 };
 
