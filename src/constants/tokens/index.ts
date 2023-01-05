@@ -6,6 +6,7 @@ import { MAINNET_PANCAKE_SWAP_TOKENS } from './pancakeSwap/mainnet';
 import { TESTNET_PANCAKE_SWAP_TOKENS } from './pancakeSwap/testnet';
 import { MAINNET_VBEP_TOKENS } from './vBep/mainnet';
 import { TESTNET_VBEP_TOKENS } from './vBep/testnet';
+// import { TESTNET_VZIL_TOKENS } from './zilliqa/testnet';
 import { TESTNET_ZIL_TOKENS } from './zilliqa/testnet';
 
 export * from './common/mainnet';

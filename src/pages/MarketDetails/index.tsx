@@ -21,8 +21,8 @@ import {
 import { useGetVTokenApySimulations } from 'clients/api';
 import Path from 'constants/path';
 import PLACEHOLDER_KEY from 'constants/placeholderKey';
-import { TOKENS } from 'constants/tokens';
 
+// import { TOKENS } from 'constants/tokens';
 import Card, { CardProps } from './Card';
 import MarketInfo, { MarketInfoProps } from './MarketInfo';
 import { useStyles } from './styles';
@@ -201,15 +201,6 @@ export const MarketDetailsUi: React.FC<MarketDetailsUiProps> = ({
         label: t('marketDetails.marketInfo.stats.dailyBorrowingInterestsLabel'),
         value: formatCentsToReadableValue({
           value: dailyBorrowingInterestsCents,
-        }),
-      },
-      {
-        label: t('marketDetails.marketInfo.stats.dailyDistributionXvs'),
-        value: formatTokensToReadableValue({
-          value: dailyDistributionXvs,
-          minimizeDecimals: true,
-          addSymbol: false,
-          token: TOKENS.xvs,
         }),
       },
       {

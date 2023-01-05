@@ -17,7 +17,7 @@ export const TESTNET_ZIL_TOKENS = {
     id: 'zil',
     symbol: 'vZIL',
     address: VZIL_TOKEN_ADDRESSES.zil[ZilChainId.TESTNET],
-    decimals: 18,
+    decimals: 8,
     asset: vZil,
   } as Token,
 };

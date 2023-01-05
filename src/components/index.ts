@@ -1,6 +1,6 @@
 export * from './Accordion';
 export * from './ActiveVotingProgress';
-export * from './ReadableActionSignature';
+// export * from './ReadableActionSignature';
 export * from './charts/ApyChart';
 export * from './charts/InterestRateChart';
 export * from './AuthModal';

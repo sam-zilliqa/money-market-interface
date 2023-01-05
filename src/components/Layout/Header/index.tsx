@@ -2,7 +2,7 @@
 import AppBar from '@mui/material/AppBar';
 import React from 'react';
 
-import ClaimXvsRewardButton from '../ClaimXvsRewardButton';
+// import ClaimXvsRewardButton from '../ClaimXvsRewardButton';
 import ConnectButton from '../ConnectButton';
 import { Toolbar } from '../Toolbar';
 import Title from './Title';
@@ -17,7 +17,6 @@ const Header: React.FC = () => {
         <Title />
 
         <div css={styles.ctaContainer}>
-          <ClaimXvsRewardButton css={styles.claimXvsButton} />
           <ConnectButton />
         </div>
       </Toolbar>
