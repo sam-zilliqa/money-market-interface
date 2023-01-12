@@ -3,7 +3,6 @@ export enum Connector {
   TrustWallet = 'TrustWallet',
   WalletConnect = 'WalletConnect',
   CoinbaseWallet = 'CoinbaseWallet',
-  BinanceChainWallet = 'BinanceChainWallet',
   BraveWallet = 'BraveWallet',
   InfinityWallet = 'InfinityWallet',
   OperaWallet = 'OperaWallet',

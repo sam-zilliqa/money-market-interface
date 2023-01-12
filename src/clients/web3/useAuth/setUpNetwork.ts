@@ -22,8 +22,8 @@ const setUpNetwork = async () => {
             ? 'Binance Smart Chain Testnet'
             : 'Binance Smart Chain Mainnet',
           nativeCurrency: {
-            name: 'BNB',
-            symbol: 'bnb',
+            name: 'ZIL',
+            symbol: 'zil',
             decimals: 18,
           },
           rpcUrls: RPC_URLS[config.chainId],

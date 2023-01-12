@@ -1,4 +1,3 @@
-import { BscConnector } from '@binance-chain/bsc-connector';
 import { InfinityWalletConnector } from '@infinitywallet/infinity-connector';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
@@ -17,7 +16,7 @@ const walletConnectConnector = new WalletConnectConnector({
   qrcode: true,
 });
 
-const binanceChainWalletConnector = new BscConnector({ supportedChainIds: [config.chainId] });
+// const binanceChainWalletConnector = new BscConnector({ supportedChainIds: [config.chainId] });
 
 const coinbaseWalletConnector = new WalletLinkConnector({
   url: config.rpcUrl,
@@ -34,7 +33,7 @@ export const connectorsByName = {
   [Connector.WalletConnect]: walletConnectConnector,
   [Connector.CoinbaseWallet]: coinbaseWalletConnector,
   [Connector.TrustWallet]: injectedConnector,
-  [Connector.BinanceChainWallet]: binanceChainWalletConnector,
+  // [Connector.BinanceChainWallet]: binanceChainWalletConnector,
   [Connector.InfinityWallet]: infinityWalletConnector,
   [Connector.OperaWallet]: injectedConnector,
   [Connector.BitKeep]: injectedConnector,
