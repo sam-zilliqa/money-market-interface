@@ -17,7 +17,7 @@ import {
   useGetMintedVai,
   useGetVTokenBalancesAll,
 } from 'clients/api';
-import { TOKENS, VBEP_TOKENS } from 'constants/tokens';
+import { TOKENS, ZIL_TOKENS } from 'constants/tokens';
 
 export interface Data {
   assets: Asset[];
@@ -33,7 +33,7 @@ export interface UseGetUserMarketInfoOutput {
   data: Data;
 }
 
-const vTokenAddresses = Object.values(VBEP_TOKENS).reduce(
+const vTokenAddresses = Object.values(ZIL_TOKENS).reduce(
   (acc, item) => (item.address ? [...acc, item.address] : acc),
   [] as string[],
 );

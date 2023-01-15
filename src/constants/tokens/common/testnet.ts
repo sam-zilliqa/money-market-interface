@@ -44,8 +44,8 @@ export const TESTNET_TOKENS = {
   usdc: {
     id: 'usdc',
     symbol: 'USDC',
-    decimals: 6,
-    address: TOKEN_ADDRESSES.usdc[BscChainId.TESTNET],
+    decimals: 18,
+    address: TOKEN_ADDRESSES.usdc[ZilChainId.TESTNET],
     asset: usdc,
   } as Token,
   usdt: {

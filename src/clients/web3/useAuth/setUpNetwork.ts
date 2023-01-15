@@ -13,6 +13,7 @@ const setUpNetwork = async () => {
   }
 
   try {
+    console.log(9211, config);
     await window.ethereum.request({
       method: 'wallet_addEthereumChain',
       params: [
