@@ -36,8 +36,8 @@ export const BorrowMarketUi: React.FC<BorrowMarketUiProps> = ({
   );
   const styles = useStyles();
 
-  if (hasLunaOrUstCollateralEnabled && openLunaUstWarningModal) {
-    console.log('hasLunaOrUstCollateralEnabled is true');
+  if (hasLunaOrUstCollateralEnabled) {
+    openLunaUstWarningModal();
   }
 
   const rowOnClick: BorrowMarketTableProps['rowOnClick'] | BorrowingUiProps['rowOnClick'] = (
