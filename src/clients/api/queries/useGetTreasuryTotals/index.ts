@@ -6,7 +6,7 @@ import { indexBy } from 'utilities';
 
 import { IGetVTokenBalancesAllOutput, useGetMarkets, useGetVTokenBalancesAll } from 'clients/api';
 import { DEFAULT_REFETCH_INTERVAL_MS } from 'constants/defaultRefetchInterval';
-import { VBEP_TOKENS } from 'constants/tokens';
+import { ZIL_TOKENS } from 'constants/tokens';
 
 // Note: this is a temporary fix. Once we start refactoring this part we should
 // probably fetch the treasury address using the Comptroller contract
@@ -15,6 +15,7 @@ const TREASURY_ADDRESSES = {
   // When querying comptroller.treasuryAddress() we get an empty address back,
   // so for now I've let it as it is
   97: '0x0000000000000000000000000000000000000000',
+  33101: '0x0000000000000000000000000000000000000000',
 };
 
 export const treasuryAddress = TREASURY_ADDRESSES[config.chainId];
@@ -31,7 +32,7 @@ export interface UseGetTreasuryTotalsOutput {
   data: Data;
 }
 
-const vTokenAddresses = Object.values(VBEP_TOKENS).reduce(
+const vTokenAddresses = Object.values(ZIL_TOKENS).reduce(
   (acc, item) => (item.address ? [...acc, item.address] : acc),
   [] as string[],
 );
@@ -48,6 +49,8 @@ const useGetTreasuryTotals = (): UseGetTreasuryTotalsOutput => {
       dailyVenusWei: new BigNumber(0),
     },
   });
+
+  console.log('Trying to reach treasury');
 
   const {
     data: vTokenBalancesTreasury = { balances: [] },
