@@ -1,9 +1,9 @@
 import config from 'config';
 import { Multicall } from 'ethereum-multicall';
 import { useMemo } from 'react';
+import { useWeb3 } from 'clients/web3';
 
 import { multicall } from '../../constants/contracts/addresses/main.json';
-import { useWeb3 } from 'clients/web3';
 
 const useMulticall = () => {
   const web3 = useWeb3();
