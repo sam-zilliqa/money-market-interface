@@ -33,9 +33,12 @@ const getVTokenBalancesAll = async ({
   vTokenAddresses,
   account,
 }: GetVTokenBalancesAllInput): Promise<IGetVTokenBalancesAllOutput> => {
+  console.log('vTokenAddresses', vTokenAddresses);
   const response = await venusLensContract.methods
     .vTokenBalancesAll(vTokenAddresses, account?.toLowerCase())
     .call();
+
+  // console.log(90, response)
 
   // This is original returned as an array with these properties but at some
   // point the properties are getting removed from the type
@@ -47,6 +50,8 @@ const getVTokenBalancesAll = async ({
     tokenBalance: item.tokenBalance,
     vToken: item.vToken,
   }));
+
+  // console.log(balances)
 
   return { balances };
 };

@@ -16,6 +16,7 @@ const enterMarkets = async ({
   accountAddress,
   vTokenAddresses,
 }: EnterMarketsInput): Promise<EnterMarketsOutput> => {
+  console.log(3, 'comptroller', comptrollerContract, 'vTokenAddress', vTokenAddresses);
   const resp = await comptrollerContract.methods
     .enterMarkets(vTokenAddresses)
     .send({ from: accountAddress });

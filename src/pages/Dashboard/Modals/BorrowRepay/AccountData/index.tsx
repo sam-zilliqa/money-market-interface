@@ -18,7 +18,6 @@ import {
 
 import { useGetUserMarketInfo } from 'clients/api';
 import { SAFE_BORROW_LIMIT_PERCENTAGE } from 'constants/safeBorrowLimitPercentage';
-import { TOKENS } from 'constants/tokens';
 import { AuthContext } from 'context/AuthContext';
 import useDailyXvsDistributionInterests from 'hooks/useDailyXvsDistributionInterests';
 
@@ -108,10 +107,6 @@ const AccountData: React.FC<AccountDataProps> = ({
     () => formatToReadablePercentage(asset.borrowApy.toFixed(2)),
     [asset.borrowApy.toFixed()],
   );
-  const readableDistributionApy = React.useMemo(
-    () => formatToReadablePercentage(asset.xvsBorrowApy.toFixed(2)),
-    [asset.xvsBorrowApy.toFixed()],
-  );
 
   return (
     <>
@@ -146,22 +141,12 @@ const AccountData: React.FC<AccountDataProps> = ({
         />
       </LabeledInlineContent>
 
-      <Delimiter css={styles.getRow({ isLast: true })} />
-
       <LabeledInlineContent
         label={t('borrowRepayModal.borrow.borrowAPy')}
         iconSrc={asset.token}
         css={styles.getRow({ isLast: false })}
       >
         {readableBorrowApy}
-      </LabeledInlineContent>
-
-      <LabeledInlineContent
-        label={t('borrowRepayModal.borrow.distributionApy')}
-        iconSrc={TOKENS.xvs}
-        css={styles.getRow({ isLast: true })}
-      >
-        {readableDistributionApy}
       </LabeledInlineContent>
 
       <Delimiter css={styles.getRow({ isLast: true })} />

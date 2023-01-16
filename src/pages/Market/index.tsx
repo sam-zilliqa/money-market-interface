@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 
-import Header from './Header';
+// import Header from './Header';
 import MarketTable from './MarketTable';
 
 const MarketUi: React.FC = () => (
   <div>
-    <Header />
+    {/* <Header /> */}
     <MarketTable />
   </div>
 );

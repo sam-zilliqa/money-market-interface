@@ -5,7 +5,6 @@ import { Delimiter } from 'components';
 import React, { useContext } from 'react';
 import { Asset } from 'types';
 
-import { TOKENS } from 'constants/tokens';
 import { DisableLunaUstWarningContext } from 'context/DisableLunaUstWarning';
 import BorrowRepayModal from 'pages/Dashboard/Modals/BorrowRepay';
 
@@ -37,6 +36,10 @@ export const BorrowMarketUi: React.FC<BorrowMarketUiProps> = ({
   );
   const styles = useStyles();
 
+  if (hasLunaOrUstCollateralEnabled) {
+    openLunaUstWarningModal();
+  }
+
   const rowOnClick: BorrowMarketTableProps['rowOnClick'] | BorrowingUiProps['rowOnClick'] = (
     _e,
     row,
@@ -45,10 +48,10 @@ export const BorrowMarketUi: React.FC<BorrowMarketUiProps> = ({
 
     // Block action and show warning modal if user has LUNA or UST enabled as
     // collateral and is attempting to open the borrow modal of other assets
-    if (hasLunaOrUstCollateralEnabled && assetId !== TOKENS.luna.id && assetId !== TOKENS.ust.id) {
-      openLunaUstWarningModal();
-      return;
-    }
+    // if (hasLunaOrUstCollateralEnabled && assetId !== TOKENS.luna.id && assetId !== TOKENS.ust.id) {
+    //   openLunaUstWarningModal();
+    //   return;
+    // }
 
     setSelectedAssetId(assetId);
   };

@@ -1,4 +1,4 @@
-import { BscChainId, Token } from 'types';
+import { BscChainId, Token, ZilChainId } from 'types';
 
 import aave from 'assets/img/tokens/aave.svg';
 import ada from 'assets/img/tokens/ada.svg';
@@ -44,8 +44,8 @@ export const TESTNET_TOKENS = {
   usdc: {
     id: 'usdc',
     symbol: 'USDC',
-    decimals: 6,
-    address: TOKEN_ADDRESSES.usdc[BscChainId.TESTNET],
+    decimals: 18,
+    address: TOKEN_ADDRESSES.usdc[ZilChainId.TESTNET],
     asset: usdc,
   } as Token,
   usdt: {
@@ -176,8 +176,8 @@ export const TESTNET_TOKENS = {
   } as Token,
   zil: {
     id: 'zil',
-    symbol: 'vZIL',
-    address: TOKEN_ADDRESSES.zil[BscChainId.TESTNET],
+    symbol: 'ZIL',
+    address: TOKEN_ADDRESSES.zil[ZilChainId.TESTNET],
     decimals: 18,
     asset: vzil,
   } as Token,

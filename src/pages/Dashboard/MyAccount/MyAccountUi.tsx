@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { BorrowLimitUsedAccountHealth, Icon, Toggle, ToggleProps, Tooltip } from 'components';
+import { BorrowLimitUsedAccountHealth, Icon, Tooltip } from 'components';
 import React from 'react';
 import { useTranslation } from 'translation';
 import { formatCentsToReadableValue, formatToReadablePercentage } from 'utilities';
@@ -34,7 +34,9 @@ export const MyAccountUi = ({
   const styles = useStyles();
   const { t } = useTranslation();
 
-  const handleXvsToggleChange: ToggleProps['onChange'] = (_event, checked) => onXvsToggle(checked);
+  if (isXvsEnabled && !onXvsToggle) {
+    console.info('isXvsEnabled', isXvsEnabled);
+  }
 
   const safeBorrowLimitCents =
     typeof borrowLimitCents === 'number'
@@ -61,27 +63,6 @@ export const MyAccountUi = ({
 
   return (
     <Paper css={styles.container} className={className}>
-      <div css={[styles.row, styles.header]}>
-        <Typography variant="h4">{t('myAccount.title')}</Typography>
-
-        <div css={styles.apyWithXvs}>
-          <Tooltip css={styles.tooltip} title={t('myAccount.apyWithXvsTooltip')}>
-            <Icon css={styles.infoIcon} name="info" />
-          </Tooltip>
-
-          <Typography
-            color="text.primary"
-            variant="small1"
-            component="span"
-            css={styles.apyWithXvsLabel}
-          >
-            {t('myAccount.apyWithXvs')}
-          </Typography>
-
-          <Toggle css={styles.toggle} value={isXvsEnabled} onChange={handleXvsToggleChange} />
-        </div>
-      </div>
-
       <div css={styles.netApyContainer}>
         <div css={styles.netApy}>
           <Typography component="span" variant="small2" css={styles.netApyLabel}>

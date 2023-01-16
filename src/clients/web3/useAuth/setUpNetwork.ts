@@ -13,6 +13,7 @@ const setUpNetwork = async () => {
   }
 
   try {
+    console.log(9211, config);
     await window.ethereum.request({
       method: 'wallet_addEthereumChain',
       params: [
@@ -22,8 +23,8 @@ const setUpNetwork = async () => {
             ? 'Binance Smart Chain Testnet'
             : 'Binance Smart Chain Mainnet',
           nativeCurrency: {
-            name: 'BNB',
-            symbol: 'bnb',
+            name: 'ZIL',
+            symbol: 'zil',
             decimals: 18,
           },
           rpcUrls: RPC_URLS[config.chainId],

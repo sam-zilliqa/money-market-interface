@@ -27,7 +27,6 @@ import {
   useRedeemUnderlying,
 } from 'clients/api';
 import useSupply from 'clients/api/mutations/useSupply';
-import { TOKENS } from 'constants/tokens';
 import { AmountFormProps } from 'containers/AmountForm';
 import { AuthContext } from 'context/AuthContext';
 import useSuccessfulTransactionModal from 'hooks/useSuccessfulTransactionModal';
@@ -75,6 +74,8 @@ export const SupplyWithdrawUi: React.FC<SupplyWithdrawUiProps & SupplyWithdrawPr
   const { t } = useTranslation();
 
   const vBepTokenContractAddress = unsafelyGetVToken(asset.token.id).address;
+  const y = unsafelyGetVToken(asset.token.id);
+  console.log('fv xc', y);
 
   const tokenInfo: LabeledInlineContentProps[] = asset
     ? [
@@ -82,11 +83,6 @@ export const SupplyWithdrawUi: React.FC<SupplyWithdrawUiProps & SupplyWithdrawPr
           label: t('supplyWithdraw.supplyApy'),
           iconSrc: asset.token,
           children: formatToReadablePercentage(asset.supplyApy),
-        },
-        {
-          label: t('supplyWithdraw.distributionApy'),
-          iconSrc: TOKENS.xvs,
-          children: formatToReadablePercentage(asset.xvsSupplyApy),
         },
       ]
     : [];
@@ -113,6 +109,7 @@ export const SupplyWithdrawUi: React.FC<SupplyWithdrawUiProps & SupplyWithdrawPr
     onSubmit: AmountFormProps['onSubmit'];
   }) => {
     const maxInput = React.useMemo(() => {
+      console.log(9, asset);
       let maxInputTokens = asset.walletBalance;
 
       // If asset isn't used as collateral user can withdraw the entire supply

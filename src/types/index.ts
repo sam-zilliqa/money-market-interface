@@ -6,6 +6,10 @@ export enum BscChainId {
   'TESTNET' = 97,
 }
 
+export enum ZilChainId {
+  'TESTNET' = 33101,
+}
+
 export interface User {
   Token: string;
 }

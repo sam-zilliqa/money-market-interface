@@ -9,10 +9,10 @@ import React, { useState } from 'react';
 import { useTranslation } from 'translation';
 
 import { ReactComponent as LogoNoText } from 'assets/img/venusLogoPure.svg';
-import { ReactComponent as LogoDesktop } from 'assets/img/venusLogoWithText.svg';
 
+// import { ReactComponent as LogoDesktop } from 'assets/img/venusLogoWithText.svg';
 import { Icon } from '../../Icon';
-import ClaimXvsRewardButton from '../ClaimXvsRewardButton';
+// import ClaimXvsRewardButton from '../ClaimXvsRewardButton';
 import ConnectButton from '../ConnectButton';
 import { Toolbar } from '../Toolbar';
 import { menuItems } from '../constants';
@@ -39,7 +39,8 @@ export const SidebarUi: React.FC = () => {
       <Drawer variant="permanent" css={styles.drawer}>
         <div css={styles.drawerContent}>
           <Toolbar css={styles.toolbar}>
-            <LogoDesktop css={styles.logo} />
+            {/* <LogoDesktop css={styles.logo} /> */}
+            <h2>IONISE</h2>
             <LogoNoText css={styles.logoClosed} />
           </Toolbar>
 
@@ -79,7 +80,7 @@ export const SidebarUi: React.FC = () => {
       {/* Mobile menu */}
       <div css={styles.mobileMenuBox}>
         <div css={styles.flexRow}>
-          <Icon name="logoMobile" css={styles.mobileLogo} />
+          {/* <Icon name="logoMobile" css={styles.mobileLogo} /> */}
 
           <ConnectButton small fullWidth css={styles.mobileConnectButton} />
 
@@ -148,7 +149,7 @@ export const SidebarUi: React.FC = () => {
             ))}
           </List>
 
-          <ClaimXvsRewardButton css={styles.claimXvsRewardButton} />
+          {/* <ClaimXvsRewardButton css={styles.claimXvsRewardButton} /> */}
         </Menu>
       </div>
     </>

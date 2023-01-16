@@ -27,13 +27,12 @@ const getMarkets = async (): Promise<GetMarketsOutput> => {
   let markets: Market[] = [];
   let dailyVenusWei;
   if (response && response.data && response.data.data) {
-    console.log('iiui', response.data.data);
     dailyVenusWei = new BigNumber(response.data.data.dailyVenus);
     markets = Object.keys(ZIL_TOKENS).reduce<Market[]>((acc: Market[], curr: string) => {
       const activeMarket = response.data?.data.markets.find(
         (market: Market) => market.underlyingSymbol.toLowerCase() === curr.toLowerCase(),
       );
-      console.log('any markdts?', activeMarket);
+
       if (activeMarket) {
         const formattedActiveMarket = {
           ...activeMarket,

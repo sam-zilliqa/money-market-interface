@@ -8,7 +8,7 @@ import { TOKENS } from 'constants/tokens';
 import { AuthContext } from 'context/AuthContext';
 
 import Markets from './Markets';
-import MintRepayVai from './MintRepayVai';
+// import MintRepayVai from './MintRepayVai';
 import MyAccount from './MyAccount';
 import { useStyles } from './styles';
 
@@ -70,7 +70,7 @@ const DashboardUi: React.FC<DashboardUiProps> = ({
           userTotalSupplyBalanceCents={userTotalSupplyBalanceCents}
         />
 
-        <MintRepayVai css={styles.column} />
+        {/* <MintRepayVai css={styles.column} /> */}
       </div>
 
       <Markets
